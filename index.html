@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio | Trabajo Creativo</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-theme">
+    <!-- Loader Overlay -->
+    <div id="loader" class="loader-overlay">
+        <div class="loader-content">
+            <div class="cube-wrapper">
+                <div class="cube">
+                    <div class="cube-face front"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                </div>
+            </div>
+            <h2 class="loader-text"><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span>
+            </h2>
+        </div>
+    </div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <div class="hud-brand">MI MARCA PERSONAL</div>
+            <ul class="nav-links">
+                <li><a href="#video-sequence" class="nav-link">Inicio</a></li>
+                <li><a href="#skills" class="nav-link">Experiencia</a></li>
+                <li><a href="#artworks" class="nav-link">Proyectos</a></li>
+                <li><a href="#contact" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon dark-icon"></i>
+                    <i class="fa-solid fa-sun light-icon"></i>
+                </button>
+                <div class="hud-innovation">INNOVACIÓN</div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Video Sequence Section -->
+    <section id="video-sequence" class="video-sequence-section orange-theme">
+        <div class="video-sticky">
+            <video id="hero-video" src="camaleon.mp4" muted playsinline preload="auto" autoplay loop></video>
+
+            <!-- HUD Overlay -->
+            <div class="hud-overlay">
+
+                <div class="hud-center-left">
+                    <h1 class="hud-title">PORTAFOLIO<br>NEXT-GEN</h1>
+                    <p class="hud-subtitle">CREATIVIDAD SIN LÍMITES PARA LA WEB DEL FUTURO</p>
+                    <a href="#artworks" class="btn-hud-main"><i class="fa-solid fa-star"></i> Descubrir Más</a>
+                </div>
+
+                <div class="hud-center-right">
+                    <p class="hud-description">Explora una colección de interfaces de usuario, experiencias digitales
+                        inmersivas y diseño web de vanguardia. Cada píxel cuenta una historia de innovación y arte
+                        digital.</p>
+                    <div class="hud-actions">
+                        <a href="https://rory759.github.io/sample-gescorp/" target="_blank"
+                            class="btn-hud-action active"><i class="fa-solid fa-play"></i> EXPLORAR
+                            PROYECTOS</a>
+                        <a href="#video-sequence" class="btn-hud-outline">CONTINUAR</a>
+                    </div>
+                </div>
+
+                <div class="hud-bottom">
+                </div>
+
+    </section>
+
+    <!-- New Section for Featured Videos (Mobile/Tablet between Heroes) -->
+    <section id="featured-sidebar-wrap" class="featured-sidebar-section">
+        <div class="hud-sidebar">
+            <div class="sidebar-label">DESTACADOS</div>
+            <div class="sidebar-cards">
+                <div class="sidebar-card">
+                    <video src="video1.mp4" autoplay loop muted playsinline></video>
+                </div>
+                <div class="sidebar-card">
+                    <video src="video2.mp4" autoplay loop muted playsinline></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <div class="glow-orb orb-3"></div>
+            <div class="grid-overlay"></div>
+        </div>
+
+        <div class="container hero-container">
+            <div class="hero-content parallax-wrap">
+                <div class="badge reveal">
+                    <span class="pulse-dot"></span> Disponible como freelance
+                </div>
+                <h1 class="reveal delay-1 parallax-text">
+                    Arte digital <br>
+                    <span class="text-gradient">redefinido.</span>
+                </h1>
+                <p class="reveal delay-2 parallax-sub">
+                    Elevando marcas a través de impresionantes modelos 3D, interfaces perfectas y diseño de juegos
+                    inmersivos. Te espera una experiencia visual de primer nivel.
+                </p>
+                <div class="hero-actions reveal delay-3">
+                    <a href="#artworks" class="btn-glow">Explorar Trabajo <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#skills" class="btn-outline">Mis Habilidades</a>
+                </div>
+            </div>
+
+            <div class="hero-visual parallax-wrap reveal delay-4">
+                <div class="glass-card main-card parallax-element">
+                    <div class="card-header">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mockup-img" style="background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);">
+                            <i class="fa-solid fa-cube floating-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- decorative floating elements -->
+                <div class="float-el el-1"><i class="fa-solid fa-pen-nib"></i></div>
+                <div class="float-el el-2"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Marquee Banner -->
+    <div class="marquee-section">
+        <div class="marquee-content">
+            <span>DISEÑO UI/UX</span> • <span>MODELADO 3D</span> • <span>DESARROLLO DE VIDEOJUEGOS</span> • <span>PIXEL
+                ART</span> • <span>GRÁFICOS EN MOVIMIENTO</span> •
+            <span>DISEÑO UI/UX</span> • <span>MODELADO 3D</span> • <span>DESARROLLO DE VIDEOJUEGOS</span> • <span>PIXEL
+                ART</span> • <span>GRÁFICOS EN MOVIMIENTO</span> •
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Mi <span>Experiencia</span></h2>
+                <p class="section-subtitle">Crafting digital excellence across multiple disciplines using
+                    industry-leading tools.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card reveal delay-1">
+                    <div class="skill-icon-wrap">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Desarrollo de Videojuegos</h3>
+                    <p>Uso de herramientas como Godot, para construir mundos interactivos cautivadores.</p>
+                </div>
+                <div class="skill-card reveal delay-2">
+                    <div class="skill-icon-wrap">
+                        <i class="fa-brands fa-unity"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Modelado 3D</h3>
+                    <p>Activos de alta fidelidad, escultura y texturizado usando Blender y ZBrush.</p>
+                </div>
+                <div class="skill-card reveal delay-3">
+                    <div class="skill-icon-wrap">
+                        <i class="fa-solid fa-wand-magic"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Diseño UI/UX</h3>
+                    <p>Interfaces intuitivas y perfectas diseñadas en Figma y Adobe XD.</p>
+                </div>
+                <div class="skill-card reveal delay-1">
+                    <div class="skill-icon-wrap">
+                        <i class="fa-solid fa-video"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Gráficos en Movimiento</h3>
+                    <p>Animaciones dinámicas y efectos visuales usando After Effects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artworks Section -->
+    <section id="artworks" class="artworks-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Trabajo <span>Destacado</span></h2>
+                <p class="section-subtitle">Una colección curada de mis proyectos más impactantes.</p>
+            </div>
+
+            <div class="portfolio-filters reveal delay-1">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="game">Juegos</button>
+                <button class="filter-btn" data-filter="3d">Arte 3D</button>
+                <button class="filter-btn" data-filter="ui">UI/UX</button>
+            </div>
+
+            <div class="art-grid">
+                <!-- Project 1 (Visible) -->
+                <div class="art-card reveal" data-category="design">
+                    <div class="art-image" style="background: url('src/1.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 1</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Visible) -->
+                <div class="art-card reveal delay-1" data-category="design">
+                    <div class="art-image" style="background: url('src/2.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 2</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Visible) -->
+                <div class="art-card reveal delay-2" data-category="design">
+                    <div class="art-image" style="background: url('src/3.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 3</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Visible) -->
+                <div class="art-card reveal" data-category="design">
+                    <div class="art-image" style="background: url('src/4.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 4</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 (Visible) -->
+                <div class="art-card reveal delay-1" data-category="design">
+                    <div class="art-image" style="background: url('src/5.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 5</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 (Visible) -->
+                <div class="art-card reveal delay-2" data-category="design">
+                    <div class="art-image" style="background: url('src/6.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 6</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 (Visible) -->
+                <div class="art-card reveal" data-category="design">
+                    <div class="art-image" style="background: url('src/7.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 7</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 (Visible) -->
+                <div class="art-card reveal delay-1" data-category="design">
+                    <div class="art-image" style="background: url('src/8.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 8</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 (Visible) -->
+                <div class="art-card reveal delay-2" data-category="design">
+                    <div class="art-image" style="background: url('src/9.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 9</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10 (Visible) -->
+                <div class="art-card reveal" data-category="design">
+                    <div class="art-image" style="background: url('src/10.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 10</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11 (Visible) -->
+                <div class="art-card reveal delay-1" data-category="design">
+                    <div class="art-image" style="background: url('src/11.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 11</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 12 (Visible) -->
+                <div class="art-card reveal delay-2" data-category="design">
+                    <div class="art-image" style="background: url('src/12.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 12</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 13 (Visible) -->
+                <div class="art-card reveal" data-category="design">
+                    <div class="art-image" style="background: url('src/13.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 13</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 14 (Visible VIDEO) -->
+                <div class="art-card reveal delay-1" data-category="motion" data-media-type="video"
+                    data-video-src="src/14.mp4">
+                    <div class="art-image" style="background: #000;">
+                        <video src="src/14.mp4" muted loop playsinline autoplay
+                            style="width: 100%; height: 100%; object-fit: cover;"></video>
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Gráficos en Movimiento</span>
+                                <h4>Proyecto 14</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 15 (Visible VIDEO) -->
+                <div class="art-card reveal delay-2" data-category="motion" data-media-type="video"
+                    data-video-src="src/15.mp4">
+                    <div class="art-image" style="background: #000;">
+                        <video src="src/15.mp4" muted loop playsinline autoplay
+                            style="width: 100%; height: 100%; object-fit: cover;"></video>
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Gráficos en Movimiento</span>
+                                <h4>Proyecto 15</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Items Archive -->
+
+                <!-- Project 0 (Hidden) -->
+                <div class="art-card hidden-item" data-category="design">
+                    <div class="art-image" style="background: url('src/0.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 0</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 16 (Hidden) -->
+                <div class="art-card hidden-item" data-category="design">
+                    <div class="art-image" style="background: url('src/16.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 16</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 17 (Hidden) -->
+                <div class="art-card hidden-item" data-category="design">
+                    <div class="art-image" style="background: url('src/17.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 17</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 18 (Hidden) -->
+                <div class="art-card hidden-item" data-category="design">
+                    <div class="art-image" style="background: url('src/18.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 18</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 19 (Hidden) -->
+                <div class="art-card hidden-item" data-category="design">
+                    <div class="art-image" style="background: url('src/19.PNG') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 19</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 20 (Hidden) -->
+                <div class="art-card hidden-item" data-category="design">
+                    <div class="art-image" style="background: url('src/20.png') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 20</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 21 (Hidden) -->
+                <div class="art-card hidden-item" data-category="design">
+                    <div class="art-image" style="background: url('src/21.PNG') center/cover;">
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Diseño</span>
+                                <h4>Proyecto 21</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 22 (Hidden VIDEO) -->
+                <div class="art-card hidden-item" data-category="motion" data-media-type="video"
+                    data-video-src="src/22.mp4">
+                    <div class="art-image" style="background: #000;">
+                        <video src="src/22.mp4" muted loop playsinline autoplay
+                            style="width: 100%; height: 100%; object-fit: cover;"></video>
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Gráficos en Movimiento</span>
+                                <h4>Proyecto 22</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 23 (Hidden VIDEO) -->
+                <div class="art-card hidden-item" data-category="motion" data-media-type="video"
+                    data-video-src="src/23.mp4">
+                    <div class="art-image" style="background: #000;">
+                        <video src="src/23.mp4" muted loop playsinline autoplay
+                            style="width: 100%; height: 100%; object-fit: cover;"></video>
+                        <div class="art-overlay">
+                            <div class="overlay-content">
+                                <span class="category-tag">Gráficos en Movimiento</span>
+                                <h4>Proyecto 23</h4>
+                                <button class="btn-circle view-btn"><i class="fa-solid fa-play"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all-wrap reveal">
+                <a href="#" class="btn-outline-glow">Ver Archivo Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-box reveal">
+                <div class="cta-glow"></div>
+                <h2>¿Listo para elevar tu proyecto?</h2>
+                <p>Colaboremos y construyamos algo extraordinario juntos.</p>
+                <a href="mailto:hello@example.com" class="btn-glow large">Iniciar un Proyecto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#hero" class="logo">PORT<span>FOLIO</span></a>
+                    <p>Empujando los límites de la creación digital.</p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Navegación</h4>
+                    <a href="#video-sequence">Inicio</a>
+                    <a href="#skills">Experiencia</a>
+                    <a href="#artworks">Proyectos</a>
+                    <a href="#contact">Contacto</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Redes Sociales</h4>
+                    <a href="#"><i class="fa-brands fa-twitter"></i> Twitter / X</a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                    <a href="#"><i class="fa-brands fa-artstation"></i> ArtStation</a>
+                    <a href="#"><i class="fa-brands fa-dribbble"></i> Dribbble</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adriel Sanchez. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-container">
+            <img class="lightbox-content" id="lightbox-img">
+            <video class="lightbox-content" id="lightbox-video" controls loop autoplay muted></video>
+        </div>
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
