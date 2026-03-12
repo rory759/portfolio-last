@@ -191,27 +191,10 @@ ul {
 }
 
 
-/* Hide mobile CTA by default */
+
+/* Mobile CTA Hidden by default on Desktop */
 .mobile-hud-actions {
     display: none;
-    padding: 2rem;
-    background: var(--bg-main);
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-@media (max-width: 768px) {
-    .mobile-hud-actions {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .mobile-hud-actions .btn-hud-action {
-        width: 100%;
-        max-width: 400px;
-        justify-content: center;
-    }
 }
 
 .loader-text span {
@@ -1611,6 +1594,32 @@ section {
         backdrop-filter: none;
     }
 
+    .sidebar-label {
+        font-size: 1.8rem !important;
+        font-weight: 800 !important;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        letter-spacing: 2px !important;
+        line-height: 1.2;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        display: block;
+        padding: 0 1rem;
+    }
+
+    .sidebar-label::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--gradient-primary);
+        margin: 1rem auto 0;
+        border-radius: 2px;
+    }
+
     .featured-sidebar-section .sidebar-cards {
         flex-direction: column;
         gap: 1.5rem;
@@ -1618,6 +1627,48 @@ section {
 
     .featured-sidebar-section .sidebar-card {
         height: 200px;
+    }
+
+    /* Redesigned Mobile Explore Banner (Sleek & Integrated) */
+    .mobile-explore-banner {
+        display: block !important;
+        width: 100%;
+        padding: 6rem 2rem 4rem;
+        /* More breathing room */
+        text-align: center;
+        background: linear-gradient(to bottom, transparent, rgba(247, 160, 85, 0.03));
+    }
+
+    .mobile-explore-banner a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--text-main);
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        transition: var(--transition-smooth);
+    }
+
+    .mobile-explore-banner i {
+        font-size: 1.2rem;
+        color: var(--accent-1);
+        transition: transform 0.4s ease;
+        display: inline-block;
+        margin: 0;
+        line-height: 1;
+        /* Perfect vertical alignment */
+        vertical-align: middle;
+    }
+
+    .mobile-explore-banner a:active i {
+        transform: translateX(10px);
     }
 }
 
