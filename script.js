@@ -33,55 +33,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Loading Overlay Synchronization ---
     const loader = document.getElementById('loader');
-    const videoLoader = document.getElementById('video-loader');
     const heroVideo = document.getElementById('hero-video');
 
     if (loader && heroVideo) {
         let isVideoReady = false;
+        const startTime = Date.now();
+        const MIN_LOAD_TIME = 3500; // 3.5 seconds
+        const MAX_LOAD_TIME = 15000; // 15 seconds
 
-        // 1. Initial Site Loader (Cube) - Reveal structure quickly
-        setTimeout(() => {
-            if (loader) loader.classList.add('hidden');
-        }, 1200);
+        // Lock scroll initially
+        document.body.style.overflow = 'hidden';
 
-        // 2. Lock scroll on mobile until video is playing
-        const updateScrollLock = () => {
-            if (window.innerWidth <= 768 && !isVideoReady) {
-                document.body.style.overflow = 'hidden';
+        const finishLoading = () => {
+            const timeElapsed = Date.now() - startTime;
+
+            // Logic: Min 5s, Max 15s
+            // Finish if (Min time passed) AND (Video is ready OR Max time reached)
+            if (timeElapsed >= MIN_LOAD_TIME && (isVideoReady || timeElapsed >= MAX_LOAD_TIME)) {
+                loader.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Unlock scroll
+                heroVideo.play().catch(() => { });
             } else {
-                document.body.style.overflow = 'auto';
+                // If not ready, poll or wait for events
+                setTimeout(finishLoading, 200);
             }
         };
 
-        updateScrollLock();
-        window.addEventListener('resize', updateScrollLock);
-
-        const unleashVideo = () => {
+        const onVideoReady = () => {
             if (isVideoReady) return;
-            isVideoReady = true;
-
-            setTimeout(() => {
-                if (videoLoader) videoLoader.classList.add('hidden');
-                updateScrollLock();
-                heroVideo.play().catch(() => { });
-            }, 600);
+            // Check if playing or ready to play
+            if (heroVideo.currentTime > 0 || heroVideo.readyState >= 3) {
+                isVideoReady = true;
+            }
         };
 
-        // Events to trigger the check
-        heroVideo.addEventListener('playing', unleashVideo);
-        heroVideo.addEventListener('timeupdate', () => {
-            if (heroVideo.currentTime > 0) unleashVideo();
-        });
-        heroVideo.addEventListener('canplay', unleashVideo);
-        heroVideo.addEventListener('canplaythrough', unleashVideo);
+        heroVideo.addEventListener('playing', onVideoReady);
+        heroVideo.addEventListener('canplay', onVideoReady);
+        heroVideo.addEventListener('canplaythrough', onVideoReady);
+        heroVideo.addEventListener('timeupdate', onVideoReady);
 
-        // Fallback: Max 8s wait
-        setTimeout(unleashVideo, 8000);
+        // Fallback: Max wait
+        setTimeout(() => {
+            isVideoReady = true;
+        }, MAX_LOAD_TIME);
 
-        // Initial attempt
+        // Start checking for completion
+        setTimeout(finishLoading, MIN_LOAD_TIME);
+
+        // Initial play attempt
         heroVideo.play().catch(() => { });
     } else if (loader) {
-        setTimeout(() => loader.classList.add('hidden'), 1000);
+        setTimeout(() => {
+            if (loader) loader.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }, 5000);
     }
 
     // --- Navbar Scroll Effect & Active Link ---
