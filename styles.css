@@ -181,6 +181,35 @@ ul {
     letter-spacing: 6px;
     color: var(--accent-1);
     font-family: var(--font-heading);
+    margin-bottom: 2rem;
+}
+
+.loader-progress-container {
+    width: 250px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.loader-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--accent-1);
+    box-shadow: 0 0 15px var(--accent-1);
+    transition: width 0.4s cubic-bezier(0.1, 0.5, 0.5, 1);
+}
+
+.loader-percentage {
+    font-size: 1rem;
+    color: var(--accent-1);
+    margin-top: 15px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 .loader-text span {
@@ -1523,8 +1552,39 @@ section {
 
     /* Hero 1 HUD Responsiveness */
     .hud-overlay {
+        display: block !important;
+        padding: 2rem;
+        pointer-events: none;
+    }
+    
+    .hud-center-left, .hud-center-right {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        transform: none;
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .hud-title, .hud-subtitle, .hud-description, .btn-hud-main, .btn-hud-outline {
         display: none !important;
-        /* Hide ALL HUD contents on mobile/tablet */
+    }
+
+    .hud-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        pointer-events: auto;
+    }
+
+    .btn-hud-action.active {
+        display: flex !important;
+        width: 100%;
+        justify-content: center;
+        padding: 1.2rem;
+        font-size: 1rem;
     }
 
     .featured-sidebar-section {

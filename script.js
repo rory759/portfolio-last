@@ -31,56 +31,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Loading Overlay Fade Out & Typing ---
+    // --- Loading Overlay Synchronization ---
     const loader = document.getElementById('loader');
-    const loaderTextType = document.querySelector('.loader-text-type');
+    const heroVideo = document.getElementById('hero-video');
+    const progressBar = document.querySelector('.loader-progress-bar');
+    const percentageText = document.querySelector('.loader-percentage');
 
-    if (loader && loaderTextType) {
-        const textToType = "";
-        let typeIndex = 0;
+    if (loader && heroVideo) {
+        let progress = 0;
+        let isVideoReady = false;
 
-        let audioCtx;
-        function playTypingSound() {
-            try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(400 + Math.random() * 200, audioCtx.currentTime);
-                gain.gain.setValueAtTime(0.015, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03);
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.05);
-            } catch (e) {
-                console.log('Audio autoplay blocked by browser', e);
+        const progressInterval = setInterval(() => {
+            if (!isVideoReady) {
+                const increment = progress < 70 ? 1 : progress < 90 ? 0.5 : 0.1;
+                progress = Math.min(progress + increment, 98);
+                updateLoaderUI(progress);
             }
+        }, 50);
+
+        function updateLoaderUI(value) {
+            if (progressBar) progressBar.style.width = `${value}%`;
+            if (percentageText) percentageText.textContent = `${Math.floor(value)}%`;
         }
 
-        function typeChar() {
-            if (typeIndex < textToType.length) {
-                loaderTextType.textContent += textToType.charAt(typeIndex);
-                typeIndex++;
-                playTypingSound();
-                setTimeout(typeChar, 80 + Math.random() * 60);
-            } else {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1000);
-            }
-        }
+        const finishLoading = () => {
+            if (isVideoReady) return;
+            isVideoReady = true;
+            clearInterval(progressInterval);
+            updateLoaderUI(100);
 
-        setTimeout(typeChar, 300);
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                heroVideo.play().catch(e => console.log("Autoplay prevented:", e));
+            }, 600);
+        };
 
+        heroVideo.addEventListener('canplaythrough', finishLoading);
+        setTimeout(finishLoading, 8000);
+        if (heroVideo.readyState >= 4) finishLoading();
     } else if (loader) {
-        setTimeout(() => {
-            loader.classList.add('hidden');
-        }, 2000);
+        setTimeout(() => loader.classList.add('hidden'), 1000);
     }
 
     // --- Navbar Scroll Effect & Active Link ---
