@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loader && heroVideo) {
         let isVideoReady = false;
 
-        // 1. Initial Site Loader (Cube) - Always fade out quickly to reveal structure
+        // 1. Initial Site Loader (Cube) - Reveal structure quickly
         setTimeout(() => {
             if (loader) loader.classList.add('hidden');
-        }, 1500);
+        }, 1200);
 
-        // 2. Lock scroll on mobile while video is not ready
+        // 2. Lock scroll on mobile until video is playing
         const updateScrollLock = () => {
             if (window.innerWidth <= 768 && !isVideoReady) {
                 document.body.style.overflow = 'hidden';
@@ -58,18 +58,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const finishVideoLoading = () => {
             if (isVideoReady) return;
-            isVideoReady = true;
 
-            setTimeout(() => {
-                if (videoLoader) videoLoader.classList.add('hidden');
-                updateScrollLock(); // Unlock scroll now that video is ready
-                heroVideo.play().catch(e => console.log("Autoplay prevented:", e));
-            }, 800);
+            // Stricter check: Ensure video has actually metadata AND has started playing (frame 1)
+            if (heroVideo.currentTime > 0 && !heroVideo.paused) {
+                isVideoReady = true;
+                setTimeout(() => {
+                    if (videoLoader) videoLoader.classList.add('hidden');
+                    updateScrollLock();
+                }, 500);
+            } else {
+                // Not actually playing yet, try to play and check again
+                heroVideo.play().catch(() => { });
+                setTimeout(finishVideoLoading, 200);
+            }
         };
 
-        heroVideo.addEventListener('canplaythrough', finishVideoLoading);
-        setTimeout(finishVideoLoading, 10000); // 10s max wait for video
-        if (heroVideo.readyState >= 4) finishVideoLoading();
+        // Events to trigger the check
+        heroVideo.addEventListener('playing', finishVideoLoading);
+        heroVideo.addEventListener('timeupdate', finishVideoLoading);
+
+        // Fallback: Max 30s wait for very slow connections
+        setTimeout(() => {
+            if (!isVideoReady) {
+                isVideoReady = true;
+                if (videoLoader) videoLoader.classList.add('hidden');
+                updateScrollLock();
+            }
+        }, 30000);
+
+        // Initial attempt
+        heroVideo.play().catch(() => { });
     } else if (loader) {
         setTimeout(() => loader.classList.add('hidden'), 1000);
     }
