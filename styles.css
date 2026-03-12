@@ -817,9 +817,19 @@ section {
 
 @media (max-width: 1393px) {
     .hud-copyright-hero {
+        bottom: 4rem;
+        /* Tablet: Lower, similar to desktop/original */
+        left: 2.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hud-copyright-hero {
         bottom: 12rem;
+        /* Mobile: Higher to avoid HUD overlap and reach visibility */
         left: 2rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 }
 
