@@ -8,7 +8,7 @@ with open(html_path, 'r', encoding='utf-8') as f:
     html = f.read()
 
 # Fix the Video Sequence Section
-video_tag = '<video id="hero-video" src="camaleon.mp4" muted playsinline preload="auto" autoplay loop></video>'
+video_tag = '<video id="hero-video" src="hero.mp4" muted playsinline preload="auto" autoplay loop></video>'
 hero_section = '<!-- Hero Section -->'
 
 if video_tag in html and hero_section in html:
