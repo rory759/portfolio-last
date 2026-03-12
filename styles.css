@@ -815,6 +815,16 @@ section {
     /* Force visibility */
 }
 
+.nav-copyright {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
 @media (max-width: 1393px) {
     .hud-copyright-hero {
         bottom: 4rem;
@@ -824,12 +834,35 @@ section {
     }
 }
 
+@media (max-width: 880px) {
+    .hud-copyright-hero {
+        display: none !important;
+    }
+
+    .nav-copyright {
+        display: block;
+        margin-top: 5px;
+        /* Adjust spacing */
+        text-align: center;
+        /* Center for mobile-ish views */
+    }
+
+    .hud-brand {
+        display: none !important;
+        /* Hide brand to make space if needed */
+    }
+}
+
 @media (max-width: 768px) {
     .hud-copyright-hero {
         bottom: 12rem;
         /* Mobile: Higher to avoid HUD overlap and reach visibility */
         left: 2rem;
         font-size: 0.85rem;
+    }
+
+    .nav-copyright {
+        font-size: 0.65rem;
     }
 }
 
