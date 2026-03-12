@@ -30,11 +30,8 @@
                     <div class="cube-face bottom"></div>
                 </div>
             </div>
-            <h2 class="loader-text"><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></h2>
-            <div class="loader-progress-container">
-                <div class="loader-progress-bar"></div>
-                <div class="loader-percentage">0%</div>
-            </div>
+            <h2 class="loader-text"><span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span>
+            </h2>
         </div>
     </div>
 
@@ -69,6 +66,14 @@
         <div class="video-sticky">
             <video id="hero-video" src="camaleon.mp4" muted playsinline preload="auto" autoplay loop></video>
 
+            <!-- Specific Video Loader -->
+            <div id="video-loader" class="video-loader-overlay">
+                <div class="video-loader-content">
+                    <p class="video-loader-text">CARGANDO... ESPERE POR FAVOR</p>
+                    <div class="video-loader-spinner"></div>
+                </div>
+            </div>
+
             <!-- HUD Overlay -->
             <div class="hud-overlay">
 
@@ -92,8 +97,15 @@
 
                 <div class="hud-bottom">
                 </div>
-
+            </div> <!-- End hud-overlay -->
+        </div> <!-- End video-sticky -->
     </section>
+
+    <!-- Mobile-only CTA (Appears below the video) -->
+    <div class="mobile-hud-actions">
+        <a href="https://rory759.github.io/sample-gescorp/" target="_blank" class="btn-hud-action active"><i
+                class="fa-solid fa-play"></i> EXPLORAR OTROS PROYECTOS</a>
+    </div>
 
     <!-- New Section for Featured Videos (Mobile/Tablet between Heroes) -->
     <section id="featured-sidebar-wrap" class="featured-sidebar-section">

@@ -33,42 +33,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Loading Overlay Synchronization ---
     const loader = document.getElementById('loader');
+    const videoLoader = document.getElementById('video-loader');
     const heroVideo = document.getElementById('hero-video');
-    const progressBar = document.querySelector('.loader-progress-bar');
-    const percentageText = document.querySelector('.loader-percentage');
 
     if (loader && heroVideo) {
-        let progress = 0;
         let isVideoReady = false;
 
-        const progressInterval = setInterval(() => {
-            if (!isVideoReady) {
-                const increment = progress < 70 ? 1 : progress < 90 ? 0.5 : 0.1;
-                progress = Math.min(progress + increment, 98);
-                updateLoaderUI(progress);
+        // 1. Initial Site Loader (Cube) - Always fade out quickly to reveal structure
+        setTimeout(() => {
+            if (loader) loader.classList.add('hidden');
+        }, 1500);
+
+        // 2. Lock scroll on mobile while video is not ready
+        const updateScrollLock = () => {
+            if (window.innerWidth <= 768 && !isVideoReady) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
             }
-        }, 50);
-
-        function updateLoaderUI(value) {
-            if (progressBar) progressBar.style.width = `${value}%`;
-            if (percentageText) percentageText.textContent = `${Math.floor(value)}%`;
-        }
-
-        const finishLoading = () => {
-            if (isVideoReady) return;
-            isVideoReady = true;
-            clearInterval(progressInterval);
-            updateLoaderUI(100);
-
-            setTimeout(() => {
-                loader.classList.add('hidden');
-                heroVideo.play().catch(e => console.log("Autoplay prevented:", e));
-            }, 600);
         };
 
-        heroVideo.addEventListener('canplaythrough', finishLoading);
-        setTimeout(finishLoading, 8000);
-        if (heroVideo.readyState >= 4) finishLoading();
+        updateScrollLock();
+        window.addEventListener('resize', updateScrollLock);
+
+        const finishVideoLoading = () => {
+            if (isVideoReady) return;
+            isVideoReady = true;
+
+            setTimeout(() => {
+                if (videoLoader) videoLoader.classList.add('hidden');
+                updateScrollLock(); // Unlock scroll now that video is ready
+                heroVideo.play().catch(e => console.log("Autoplay prevented:", e));
+            }, 800);
+        };
+
+        heroVideo.addEventListener('canplaythrough', finishVideoLoading);
+        setTimeout(finishVideoLoading, 10000); // 10s max wait for video
+        if (heroVideo.readyState >= 4) finishVideoLoading();
     } else if (loader) {
         setTimeout(() => loader.classList.add('hidden'), 1000);
     }
