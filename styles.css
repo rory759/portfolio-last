@@ -798,6 +798,31 @@ section {
 }
 
 /* Glass Card Parallax */
+.hud-copyright-hero {
+    position: absolute;
+    bottom: 4rem;
+    /* Higher to avoid overlap if needed */
+    left: 4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.6);
+    /* Slightly more visible */
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    z-index: 1000;
+    /* Higher z-index just in case */
+    display: block !important;
+    /* Force visibility */
+}
+
+@media (max-width: 1393px) {
+    .hud-copyright-hero {
+        bottom: 1.5rem;
+        left: 2rem;
+        font-size: 0.9rem;
+    }
+}
+
 .hero-visual {
     position: relative;
     perspective: 1000px;
