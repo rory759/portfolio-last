@@ -817,7 +817,7 @@ section {
 
 @media (max-width: 1393px) {
     .hud-copyright-hero {
-        bottom: 8rem;
+        bottom: 12rem;
         left: 2rem;
         font-size: 0.9rem;
     }
