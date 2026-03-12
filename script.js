@@ -56,35 +56,27 @@ document.addEventListener('DOMContentLoaded', () => {
         updateScrollLock();
         window.addEventListener('resize', updateScrollLock);
 
-        const finishVideoLoading = () => {
+        const unleashVideo = () => {
             if (isVideoReady) return;
+            isVideoReady = true;
 
-            // Stricter check: Ensure video has actually metadata AND has started playing (frame 1)
-            if (heroVideo.currentTime > 0 && !heroVideo.paused) {
-                isVideoReady = true;
-                setTimeout(() => {
-                    if (videoLoader) videoLoader.classList.add('hidden');
-                    updateScrollLock();
-                }, 500);
-            } else {
-                // Not actually playing yet, try to play and check again
+            setTimeout(() => {
+                if (videoLoader) videoLoader.classList.add('hidden');
+                updateScrollLock();
                 heroVideo.play().catch(() => { });
-                setTimeout(finishVideoLoading, 200);
-            }
+            }, 600);
         };
 
         // Events to trigger the check
-        heroVideo.addEventListener('playing', finishVideoLoading);
-        heroVideo.addEventListener('timeupdate', finishVideoLoading);
+        heroVideo.addEventListener('playing', unleashVideo);
+        heroVideo.addEventListener('timeupdate', () => {
+            if (heroVideo.currentTime > 0) unleashVideo();
+        });
+        heroVideo.addEventListener('canplay', unleashVideo);
+        heroVideo.addEventListener('canplaythrough', unleashVideo);
 
-        // Fallback: Max 30s wait for very slow connections
-        setTimeout(() => {
-            if (!isVideoReady) {
-                isVideoReady = true;
-                if (videoLoader) videoLoader.classList.add('hidden');
-                updateScrollLock();
-            }
-        }, 30000);
+        // Fallback: Max 8s wait
+        setTimeout(unleashVideo, 8000);
 
         // Initial attempt
         heroVideo.play().catch(() => { });
